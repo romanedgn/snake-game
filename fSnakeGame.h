@@ -1,3 +1,8 @@
+/*
+This is the game logic (no user interaction).
+The game is a very simple version of the classic snake game.
+*/
+
 #include <iostream>
 #include <vector>
 #include <ncurses.h>
@@ -6,17 +11,20 @@
 #ifndef FSNAKEGAME_H
 #define FSNAKEGAME_H
 
+// Unreal standards
+using int32 = int;
+
 struct CharPosition 
 {
-	int x, y;
-	CharPosition(int col, int row);
+	int32 x, y;
+	CharPosition(int32 col, int32 row);
 	CharPosition();
 };
 
 class fSnakeGame 
 {
 private:
-	int score, del, maxwidth, maxheight;
+	int32 score, del, maxwidth, maxheight;
 	char direction, partchar, edgechar, fruitchar;
 	// partchar is the character representing the snake's body
 	// edgechar is the character representing the edge of the game window
@@ -40,6 +48,5 @@ public:
 	~fSnakeGame(); // destructor for cleanup and memory deallocation
 	void PlayGame();
 };
-
 
 #endif
